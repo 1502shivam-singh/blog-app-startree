@@ -10,30 +10,30 @@ const HomePage: React.FC = () => {
   revealRefs.current = [];
 
   useEffect(() => {
-    import('gsap').then(({ gsap }) => {
-      import('gsap/dist/ScrollTrigger').then(({ ScrollTrigger }) => {
-        gsap.registerPlugin(ScrollTrigger);
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
+          const isIntersecting = entry.isIntersecting || entry.intersectionRatio > 0;
 
-        revealRefs.current.forEach((el, index) => {
-          gsap.fromTo(
-            el,
-            { autoAlpha: 0 },
-            {
-              duration: 1,
-              autoAlpha: 1,
-              ease: 'none',
-              scrollTrigger: {
-                markers: true,
-                id: `section-${index + 1}`,
-                trigger: el,
-                start: 'top center+=50',
-                toggleActions: 'play none none reverse',
-              },
-            }
-          );
-        });
-      });
-    });
+          if (isIntersecting) {
+            el.style.transition = 'opacity 1s';
+            el.style.opacity = '1';
+          } else {
+            el.style.transition = 'opacity 1s';
+            el.style.opacity = '0';
+          }
+        }),
+      {
+        threshold: 0.1,
+      }
+    );
+
+    revealRefs.current.forEach((el) => observer.observe(el));
+
+    return function cleanup() {
+      revealRefs.current.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   const addToRefs = (el: HTMLDivElement) => {
@@ -48,7 +48,7 @@ const HomePage: React.FC = () => {
         <h2 className={styles['header-text']}>Journey through time</h2>
       </header>
       {posts.map((post: Post, index) => (
-        <div key={post.id} className={styles.post} ref={addToRefs}>
+        <div key={post.id} className={styles.post} ref={addToRefs} style={{ opacity: 0 }}>
           <div className={styles['post-content']}>
             <h1 className={styles['post-title']}>
               <Link href={`/${post.id}`}>

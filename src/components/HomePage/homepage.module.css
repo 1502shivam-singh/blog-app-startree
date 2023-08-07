@@ -1,0 +1,122 @@
+@font-face {
+  font-family: 'Canel';
+  src: url('/fonts/Canela-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url('/fonts/Helvetica-Neue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  font-family: 'Helvetica';
+}
+
+.header {
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+  background: rgb(255 255 255);
+  color: #0d2065;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  left: 0;
+}
+
+.headText {
+  font-family: 'Helvetica-Neue';
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+}
+
+.header-text {
+  font-size: 2rem;
+  font-weight: 100;
+  font-family: 'Canel';
+}
+
+.post {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-around;
+  align-items: center;
+  margin: 8rem 1rem;
+  height: 100vh;
+
+  background: #05003f;
+  border-radius: 25px;
+}
+
+.post-content {
+  font-family: 'helvetica';
+  padding: 2rem;
+}
+
+.post-title {
+  font-size: 5rem;
+  font-weight: 100;
+  font-family: 'Canel';
+}
+
+.post-excerpt {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  font-family: Helvetica Neue UltraLight;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  line-height: 1.7rem;
+  width: 28vw;
+}
+
+.post-image {
+  color: transparent;
+  border-radius: 2rem;
+  filter: drop-shadow(2px 4px 6px #121212);
+  overflow: clip;
+}
+
+.post-image > img {
+  border-radius: 25px;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .post {
+        display: flex;
+        overflow: hidden;
+        justify-content: space-around;
+        align-items: center;
+        margin: 9rem 1rem;
+        flex-direction: column-reverse;
+        background: #05003f;
+        border-radius: 25px;
+    }
+
+    .post-excerpt {
+      width: 100%;
+    }
+
+    .post-image{
+      transform: scale(0.9);
+    }
+    
+    .post-image > img {
+      border-radius: 25px;
+    }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+
+}

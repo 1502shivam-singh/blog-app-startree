@@ -1,0 +1,57 @@
+/* blogpost.module.css */
+@font-face {
+  font-family: 'Canel';
+  src: url('/fonts/Canela-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url('/fonts/Helvetica-Neue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  font-family: 'Helvetica';
+}
+
+.header {
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+  background: rgb(24, 26, 27);
+  color: white;
+}
+
+.header-text {
+  font-size: 2rem;
+  font-weight: 100;
+  font-family: 'Canel';
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 100;
+  font-family: 'Canel';
+  text-align: center;
+  padding: 2rem;
+  color: #121212;
+}
+
+.image {
+  width: 100vw;
+  padding: 2rem 0;
+  height: 500px;
+}
+
+.content {
+  font-size: 1.3rem;
+  font-family: Helvetica Neue UltraLight;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  line-height: 2.5rem;
+  padding: 2rem;
+  text-align: left;
+  color: #121212;
+}

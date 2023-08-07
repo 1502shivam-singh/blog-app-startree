@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
               scrollTrigger: {
                 id: `section-${index + 1}`,
                 trigger: el,
-                start: 'top top+=100',
+                start: 'top center+=50',
                 toggleActions: 'play none none reverse',
               },
             }
@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
       revealRefs.current.push(el);
     }
   };
-  
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>

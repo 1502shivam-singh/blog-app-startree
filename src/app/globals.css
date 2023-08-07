@@ -93,6 +93,22 @@ a {
   text-decoration: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a; /* color of the scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #252525; /* color of the scroll thumb on hover */
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

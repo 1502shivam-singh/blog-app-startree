@@ -9,7 +9,7 @@ import { gsap } from 'gsap';
 const BlogPostPage: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
-  const post = posts.find((post: Post) => post.id === id);
+  const post = posts.find((post: Post) => post.id === id) || { image: '', title: '', content: '' };
 
   const titleRef = useRef(null);
   const imageRef = useRef(null);
@@ -28,11 +28,11 @@ const BlogPostPage: React.FC = () => {
 
   return (
     <div style={{textAlign: "center"}}>
-      <h2 className={styles.title} ref={titleRef}>{post?.title}</h2>
+      <h2 className={styles.title} ref={titleRef}>{post.title}</h2>
       <div ref={imageRef}>
-        <Image className={styles.image} width={500} height={500} src={post?.image} alt="blog-image" />
+        <Image className={styles.image} width={500} height={500} src={post.image} alt="blog-image" />
       </div>
-      <p className={styles.content} ref={contentRef}>{post?.content}</p>
+      <p className={styles.content} ref={contentRef}>{post.content}</p>
     </div>
   );
 };

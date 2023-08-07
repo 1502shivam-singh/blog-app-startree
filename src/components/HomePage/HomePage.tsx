@@ -4,32 +4,34 @@ import Link from 'next/link';
 import { Post } from '../../types';
 import posts from '../../data/data.json';
 import styles from './homepage.module.css';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const HomePage: React.FC = () => {
   const revealRefs = useRef<HTMLDivElement[]>([]);
   revealRefs.current = [];
 
   useEffect(() => {
-    revealRefs.current.forEach((el, index) => {
-      gsap.fromTo(
-        el,
-        { autoAlpha: 0 },
-        {
-          duration: 1,
-          autoAlpha: 1,
-          ease: 'none',
-          scrollTrigger: {
-            id: `section-${index + 1}`,
-            trigger: el,
-            start: 'top center+=100',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
+    import('gsap').then(({ gsap }) => {
+      import('gsap/dist/ScrollTrigger').then(({ ScrollTrigger }) => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        revealRefs.current.forEach((el, index) => {
+          gsap.fromTo(
+            el,
+            { autoAlpha: 0 },
+            {
+              duration: 1,
+              autoAlpha: 1,
+              ease: 'none',
+              scrollTrigger: {
+                id: `section-${index + 1}`,
+                trigger: el,
+                start: 'top top+=100',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        });
+      });
     });
   }, []);
 
@@ -38,7 +40,7 @@ const HomePage: React.FC = () => {
       revealRefs.current.push(el);
     }
   };
-
+  
   return (
     <div className={styles.container}>
       <header className={styles.header}>

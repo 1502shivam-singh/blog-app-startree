@@ -23,6 +23,7 @@ const HomePage: React.FC = () => {
               autoAlpha: 1,
               ease: 'none',
               scrollTrigger: {
+                markers: true,
                 id: `section-${index + 1}`,
                 trigger: el,
                 start: 'top center+=50',
